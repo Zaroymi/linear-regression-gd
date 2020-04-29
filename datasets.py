@@ -3,15 +3,15 @@ import numpy as np
 
 
 
-def read_real_dataset(dims_2 = True):
+def read_real_dataset(dims_3 = False):
 
     ''' read real dataset from home_data.csv '''
 
     #             y             x1
     columns = ['price', 'sqft_living']
 
-    if not dims_2:     #x2              x3
-        columns += ['sqft_above' , 'sqft_basement']
+    if dims_3:     #x2   
+        columns += ['sqft_above']
 
     data = pd.read_csv('./dataset/home_data.csv').loc[:, columns]
     # data.hist(bins=150) # check dataset distribution
