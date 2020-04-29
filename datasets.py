@@ -3,11 +3,17 @@ import numpy as np
 
 
 
-def read_real_dataset():
+def read_real_dataset(dims_2 = True):
 
     ''' read real dataset from home_data.csv '''
 
-    data = pd.read_csv('./dataset/home_data.csv').loc[:, ['price', 'sqft_living']]
+    #             y             x1
+    columns = ['price', 'sqft_living']
+
+    if not dims_2:     #x2              x3
+        columns += ['sqft_above' , 'sqft_basement']
+
+    data = pd.read_csv('./dataset/home_data.csv').loc[:, columns]
     # data.hist(bins=150) # check dataset distribution
     data=(data-data.mean())/data.std() # standatization
     x, y = data.iloc[:, 1:].to_numpy(), data.iloc[:,0].to_numpy()
