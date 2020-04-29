@@ -10,7 +10,7 @@ def read_real_dataset():
     data = pd.read_csv('./dataset/home_data.csv').loc[:, ['price', 'sqft_living']]
     # data.hist(bins=150) # check dataset distribution
     data=(data-data.mean())/data.std() # standatization
-    x, y = data.iloc[:, 1].to_numpy(), data.iloc[:,0].to_numpy()
+    x, y = data.iloc[:, 1:].to_numpy(), data.iloc[:,0].to_numpy()
     x_0 = np.ones(len(x))
     x = np.column_stack((x_0, x))
     return x, y

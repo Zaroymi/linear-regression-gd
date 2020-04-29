@@ -47,7 +47,7 @@ def main():
     # x, y_ideal, y = generate_dataset(3, 15, True)
 
     x, y = read_real_dataset() 
-    weights = np.random.normal(0, 1, 2) # generate random weights ~ N(0, 1)
+    weights = np.random.normal(0, 1, x.shape[1]) # generate random weights ~ N(0, 1)
 
     epochs, learning_rate = 8, 0.7
 
