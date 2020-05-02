@@ -17,8 +17,8 @@ There is an example of simple gradient descent algorithm for the linear regressi
 
 1. Install packages from the list above
 2. Run linear_regression_algo.py
-2.1 It reads data from dataset folder home_data.csv. You can change behaviour in datasets.py
-2.2 Аfter completion of the algorithm you will see all epoch on plots
+2.1. It reads data from dataset folder home_data.csv. You can change behaviour in datasets.py
+2.2. Аfter completion of the algorithm you will see all epoch on plots
 
 # Example dataset
 
