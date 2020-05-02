@@ -7,13 +7,23 @@ There is an example of simple gradient descent algorithm for the linear regressi
 * pandas
 * numpy
 * matplotlib
-* sklearn 
+* sklearn
+* jupyter 
 
 # What you can do with this repository?
 1. Learn how to make an GD algorithm in python and use it on real dataset
 2. Find an example of sklearn Linear Regression
 
 # How to use this
+
+## Jupyter notebook
+
+1. Install packages from the list above
+2. Open linear_regression_algo.ipynb in jupiter notebook
+
+### OR
+
+## Python
 
 1. Install packages from the list above
 2. Run linear_regression_algo.py
