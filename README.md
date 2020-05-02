@@ -33,3 +33,8 @@ There is an example of simple gradient descent algorithm for the linear regressi
 # Example dataset
 
 [The data set for an example is taken from here.](https://www.kaggle.com/prakharrathi25/home-prices-dataset)
+
+
+# Output
+
+![Imgur](https://i.imgur.com/sDfveuE.png)
