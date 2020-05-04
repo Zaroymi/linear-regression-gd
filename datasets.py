@@ -15,10 +15,14 @@ def read_real_dataset(dims_3 = False):
 
     data = pd.read_csv('./dataset/home_data.csv').loc[:, columns]
     # data.hist(bins=150) # check dataset distribution
-    data=(data-data.mean())/data.std() # standatization
+    data=(data-data.mean())/data.std() # standartization
     x, y = data.iloc[:, 1:].to_numpy(), data.iloc[:,0].to_numpy()
     x_0 = np.ones(len(x))
     x = np.column_stack((x_0, x))
+   
+    # x_2 = np.square(x)
+    # x = np.column_stack((x_0, x, x_2))
+   
     return x, y
 
 

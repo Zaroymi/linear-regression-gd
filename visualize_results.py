@@ -1,9 +1,13 @@
 import matplotlib.pyplot as plt
-
+import numpy as np
 
 def draw_function(x, y, plot = plt, as_line = False, color = 'blue'):
     if as_line:
-        plot.plot(x[:, 1], y, color = color)
+        x = x[:, 1]
+        sort_args = np.argsort(x)
+        x = x[sort_args]
+        y = y[sort_args]
+        plot.plot(x, y, color = color)
     else:
         plot.scatter(x[:, 1],y, color = color, s=0.001)
 

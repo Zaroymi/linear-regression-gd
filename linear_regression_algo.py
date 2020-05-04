@@ -13,23 +13,25 @@ def cost_func(y, y_hat):
     return np.mean(np.square(y_hat - y))
 
 def count_gradient(x, weights, y):
-    vec_w = np.zeros(shape=(len(weights), ))
+    vec_w = np.zeros(weights.shape)
    
     for i, weight in enumerate(weights):
         y_hat = predict(x, weights)
-        vec_w[i] = np.dot((y - y_hat), x[:, i]) / len(x) # count partial derivative
+        x_i = x[:, i]
+        y_diff = y_hat - y
+        vec_w[i] = np.dot(y_diff, x_i) # count partial derivative
    
     return vec_w
 
 
-def gradient_descent_algorithm(x, weights, y, epochs, lr, display_cost = True):
+def gradient_descent_algorithm(x, weights, y, epochs, lr, regular_param, display_cost = True):
     epoch_results = [] #for visualisation
     
     for epoch in range(epochs):
 
         y_hat = predict(x, weights)
 
-        epoch_results.append({'y_hat': y_hat, 'w':weights, 'e': epoch}) # save results
+        epoch_results.append({'y_hat': y_hat, 'w': weights, 'e': epoch}) # save results
         
         if display_cost:
             cost = cost_func(y, y_hat)
@@ -37,7 +39,7 @@ def gradient_descent_algorithm(x, weights, y, epochs, lr, display_cost = True):
 
         gradient = count_gradient(x, weights, y)
 
-        weights = np.add(weights, lr*gradient) 
+        weights = weights - lr/len(x) * (gradient + regular_param * weights)
     
     return weights, epoch_results
 
@@ -49,9 +51,10 @@ def main():
     x, y = read_real_dataset() 
     weights = np.random.normal(0, 1, x.shape[1]) # generate random weights ~ N(0, 1)
 
-    epochs, learning_rate = 8, 0.7
+    epochs, learning_rate, regularization_param = 8, 0.7, 0.1
 
-    weights, epoch_results = gradient_descent_algorithm(x, weights, y, epochs, learning_rate)
+    weights, epoch_results = gradient_descent_algorithm(x, weights, y, 
+                                                        epochs, learning_rate, regularization_param)
 
     y_hat = predict(x, weights)
     
