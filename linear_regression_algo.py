@@ -51,7 +51,7 @@ def main():
     x, y = read_real_dataset() 
     weights = np.random.normal(0, 1, x.shape[1]) # generate random weights ~ N(0, 1)
 
-    epochs, learning_rate, regularization_param = 8, 0.7, 0.1
+    epochs, learning_rate, regularization_param = 8, 0.6, 0.1
 
     weights, epoch_results = gradient_descent_algorithm(x, weights, y, 
                                                         epochs, learning_rate, regularization_param)

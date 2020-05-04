@@ -20,8 +20,8 @@ def read_real_dataset(dims_3 = False):
     x_0 = np.ones(len(x))
     x = np.column_stack((x_0, x))
    
-    # x_2 = np.square(x)
-    # x = np.column_stack((x_0, x, x_2))
+    #x_2 = np.square(x)
+    #x = np.column_stack((x_0, x, x_2))
    
     return x, y
 
