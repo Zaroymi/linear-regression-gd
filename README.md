@@ -2,13 +2,13 @@
 
 There is an example of simple gradient descent algorithm for the linear regression task
 
-# Packages
+# Depandencies
 * Python ~ 3.7.6
 * pandas
 * numpy
 * matplotlib
 * sklearn
-* jupyter 
+* jupyter (if you want use jupyter notebook)
 
 # What you can do with this repository?
 1. Learn how to make an GD algorithm in python and use it on real dataset
