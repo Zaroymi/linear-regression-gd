@@ -48,15 +48,15 @@ def main():
     # uncomment for generate toy dataset
     # x, y_ideal, y = generate_dataset(3, 15, True)
 
-    x, y = read_real_dataset() 
+    x, y, x_test, y_test = read_real_dataset() 
     weights = np.random.normal(0, 1, x.shape[1]) # generate random weights ~ N(0, 1)
 
-    epochs, learning_rate, regularization_param = 8, 0.6, 0.1
+    epochs, learning_rate, regularization_param = 8, 0.2, 0.1
 
     weights, epoch_results = gradient_descent_algorithm(x, weights, y, 
                                                         epochs, learning_rate, regularization_param)
 
-    y_hat = predict(x, weights)
+    y_hat = predict(x_test, weights)
     
     print("w_1 (k) - {:.3f}".format(weights[1]))
     print("w_0 (b) - {:.3f}".format(weights[0]))
@@ -66,9 +66,15 @@ def main():
     
 
     draw_function(x, y, as_line=False)
-    draw_function(x, y_hat, as_line=True, color='red')
+    draw_function(x_test, y_hat, as_line=True, color='red')
+    print(cost_func(y, predict(x, weights)))
     plt.show()
+    
 
+    draw_function(x_test, y_test, as_line=False)
+    draw_function(x_test, y_hat, as_line=True, color='red')
+    print(cost_func(y_test, y_hat))
+    plt.show()
 
 
 

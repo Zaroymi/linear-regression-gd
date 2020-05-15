@@ -5,13 +5,13 @@ import matplotlib.pyplot as plt
 
 
 def main():
-    x, y = read_real_dataset()
+    x, y, x_test, y_test = read_real_dataset()
 
     model = LinearRegression()
 
     model.fit(x, y)
 
-    y_hat = model.predict(x)
+    y_hat = model.predict(x) # w = (X`X)^-1 * X`y
 
     plt.scatter(x[:, 1], y, s=0.001, color='blue')
     plt.plot(x[:, 1], y_hat, color = 'red')

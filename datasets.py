@@ -19,11 +19,13 @@ def read_real_dataset(dims_3 = False):
     x, y = data.iloc[:, 1:].to_numpy(), data.iloc[:,0].to_numpy()
     x_0 = np.ones(len(x))
     x = np.column_stack((x_0, x))
-   
-    #x_2 = np.square(x)
+
+    #x_2 = np.random.normal(0, 1, x.shape[0])#np.square(x) * np.sin(x/10)
     #x = np.column_stack((x_0, x, x_2))
-   
-    return x, y
+    
+    x_test, y_test = x[20000:], y[20000:]
+
+    return x, y, x_test, y_test
 
 
 
