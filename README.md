@@ -2,7 +2,7 @@
 
 There is an example of simple gradient descent algorithm for the linear regression task
 
-# Depandencies
+# Dependencies
 * Python ~ 3.7.6
 * pandas
 * numpy
